@@ -5,27 +5,17 @@ public class Computer {
 
     private String firstName;
     private int first;
-    private String secondName;
-    private int second;
-    private String thirdName;
-    private int third;
 
     public Computer(int maximum, int minimum) {
         max = maximum;
         min = minimum;
         randomNum = 0;
-        first = 50;
-        second = 100;
-        third = 150;
 
     }
     public Computer() {
         min = 1;
         max = 100;
         randomNum = 0;
-        first = 50;
-        second = 100;
-        third = 150;
 
     }
 
@@ -55,27 +45,21 @@ public class Computer {
         }
     }
 
+    public void setScore(int count, String name) {
+        first = count;
+        firstName = name;
+    }
+
     public void checkLeaderBoardScore(int count, String name) {
         if (count < first) {
-            second = first;
-            third = second;
             first = count;
             firstName = name;
-        } else if (count < second) {
-            third = second;
-            second = count;
-            secondName = name;
-        } else if (count < third) {
-            third = count;
-            thirdName = name;
         }
     }
 
     public String leaderBoard() {
-        String leaders = "First Place = " + firstName + " | Score = " + first;
-        leaders += "\nSecond Place = " + secondName + " | Score = " + second;
-        leaders += "\nThird Place = " + thirdName + " | Score = " + third;
-
+        String leaders = "The person with the highest score is " + firstName + ", with " + first + " tries.";
         return leaders;
     }
+
 }
