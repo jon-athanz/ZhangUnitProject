@@ -29,11 +29,14 @@ public class Computer {
 
     public void numberChecker(int guess) {
         if (guess > getRandomNum()) {
-            System.out.println("Lower");
+            String position = "Lower";
+            System.out.println(position);
         } else if (guess < getRandomNum()) {
-            System.out.println("Higher");
+            String position = "Higher";
+            System.out.println(position);
         } else {
-            System.out.println("You got it!");
+            String position = "You got it!";
+            System.out.println(position);
         }
     }
 
@@ -51,14 +54,18 @@ public class Computer {
     }
 
     public void checkLeaderBoardScore(int count, String name) {
-        if (count < first) {
+        if (count < first && count > 0) {
             first = count;
             firstName = name;
         }
     }
 
+    public String toString() {
+        return firstName + ": " + first + " tries";
+    }
+
     public String leaderBoard() {
-        String leaders = "The person with the highest score is " + firstName + ", with " + first + " tries.";
+        String leaders = "The person with the highest score is: " + firstName + "\nWith " + first + " Tries!!!!";
         return leaders;
     }
 
